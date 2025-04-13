@@ -13,11 +13,15 @@ import {
   import { Typewriter } from 'react-simple-typewriter';
   import { motion } from 'framer-motion';
   import Navbar from '../components/navbar';
+  import { useNavigate } from 'react-router-dom';
+
   
   const MotionBox = motion(Box);
   const MotionDiv = motion.div;
+
   
   const Landing = () => {
+    const navigate = useNavigate();
     return (
       <>
         <Navbar />
@@ -61,9 +65,14 @@ import {
                   high-quality, personalized, and clear content. You build. We write.
                 </Text>
                 <HStack spacing={4}>
-                  <Button colorScheme="purple" size="lg" _hover={{ transform: 'scale(1.04)', boxShadow: 'lg' }}>
-                    Get Started
-                  </Button>
+                <Button
+  colorScheme="purple"
+  size="lg"
+  onClick={() => navigate('/team')}
+  _hover={{ transform: 'scale(1.04)', boxShadow: 'lg' }}
+>
+  Get Started
+</Button>
                   <Button variant="outline" size="lg" _hover={{ transform: 'scale(1.04)', boxShadow: 'md' }}>
                     Learn More
                   </Button>
