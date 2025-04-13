@@ -17,9 +17,26 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const MotionBox = motion(Box);
-const categories = ['Engineering', 'Sales', 'Human Resources'];
 
-const PlaceholderPanel = ({ title }) => {
+const panelData = [
+  {
+    title: 'Engineering',
+    image: 'https://placehold.co/400x200?text=Engineering+Diagram',
+    video: 'https://placehold.co/400x200?text=Engineering+Video',
+  },
+  {
+    title: 'Sales',
+    image: 'https://placehold.co/400x200?text=Sales+Chart',
+    video: 'https://placehold.co/400x200?text=Sales+Demo+Video',
+  },
+  {
+    title: 'Human Resources',
+    image: 'https://placehold.co/400x200?text=HR+Visual',
+    video: 'https://placehold.co/400x200?text=HR+Training+Clip',
+  },
+];
+
+const PlaceholderPanel = ({ title, image, video }) => {
   const toast = useToast();
 
   const handleCopy = () => {
@@ -69,7 +86,7 @@ const PlaceholderPanel = ({ title }) => {
       </Flex>
 
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
-        {/* Left Placeholder */}
+        {/* Left Image Placeholder */}
         <Box
           position="relative"
           h="280px"
@@ -81,16 +98,11 @@ const PlaceholderPanel = ({ title }) => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          fontSize="md"
-          fontWeight="medium"
-          color="gray.600"
           px={6}
-          textAlign="center"
           transition="transform 0.2s ease, box-shadow 0.2s ease"
           _hover={{ transform: 'translateY(-4px)', boxShadow: 'xl' }}
         >
-          🧠 <br />
-          Image or Diagram Placeholder
+          <img src={image} alt={`${title} visual`} style={{ maxHeight: '100%', maxWidth: '100%' }} />
           <Button
             size="xs"
             variant="ghost"
@@ -106,7 +118,7 @@ const PlaceholderPanel = ({ title }) => {
           </Button>
         </Box>
 
-        {/* Right Placeholder */}
+        {/* Right Video Placeholder */}
         <Box
           position="relative"
           h="280px"
@@ -118,16 +130,15 @@ const PlaceholderPanel = ({ title }) => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          fontSize="md"
-          fontWeight="medium"
-          color="gray.600"
           px={6}
-          textAlign="center"
           transition="transform 0.2s ease, box-shadow 0.2s ease"
           _hover={{ transform: 'translateY(-4px)', boxShadow: 'xl' }}
         >
-          🎥 <br />
-          Video Placeholder
+          <video
+            src={video}
+            controls
+            style={{ maxHeight: '100%', maxWidth: '100%', borderRadius: '0.5rem' }}
+          />
           <Button
             size="xs"
             variant="ghost"
@@ -185,7 +196,7 @@ const TeamView = () => {
           borderBottom="1px solid #e2e8f0"
           pb={2}
         >
-          {categories.map((cat, i) => (
+          {panelData.map((panel, i) => (
             <Tab
               key={i}
               px={6}
@@ -200,7 +211,7 @@ const TeamView = () => {
               _hover={{ bg: 'purple.50' }}
               transition="all 0.2s"
             >
-              {cat}
+              {panel.title}
             </Tab>
           ))}
         </TabList>
@@ -214,7 +225,7 @@ const TeamView = () => {
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.4, ease: 'easeInOut' }}
         >
-          <PlaceholderPanel title={categories[selectedTab]} />
+          <PlaceholderPanel {...panelData[selectedTab]} />
         </MotionBox>
       </AnimatePresence>
     </Box>
