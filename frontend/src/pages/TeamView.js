@@ -161,8 +161,8 @@ const TeamView = () => {
     >
       {/* Header */}
       <Box textAlign="center" mb={12} position="relative" zIndex={1}>
-        <Heading fontSize="4xl" fontWeight="bold" color="purple.700">
-          Your Team View
+        <Heading fontSize="4xl" fontWeight="bold" color="black.700">
+          Product Hack Team View
         </Heading>
         <Text fontSize="md" color="gray.500" mt={2}>
           Visualize your team’s latest output by category

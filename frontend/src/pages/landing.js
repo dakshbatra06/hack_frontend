@@ -40,7 +40,7 @@ import {
             >
               <VStack align="start" spacing={6} flex="1" maxW="50%">
                 <Text fontSize="sm" fontWeight="medium" color="gray.500">
-                  Powered by LangChain
+                  Powered by Artificial Intelligence
                 </Text>
                 <Heading
                   fontSize={{ base: '3xl', md: '5xl' }}
@@ -97,7 +97,7 @@ import {
               >
                 <Typewriter
                   words={[`
-  > QuickComs, create a post about our recent activity
+  > Quick Coms, create a post about our recent activity
   
   Tech:
   Launching Video and Transcript...
@@ -117,7 +117,7 @@ import {
         <Box id="how-it-works" bg="#0F1117" py={20} px={6} color="white">
           <Box textAlign="center" mb={16}>
             <Heading fontSize="2xl" fontWeight="bold" mb={3}>
-              How QuickComs Works
+              How Quick Coms Works
             </Heading>
             <Text fontSize="sm" color="gray.400" maxW="2xl" mx="auto">
               A seamless process that transforms your internal activities into
@@ -168,88 +168,80 @@ import {
               </Box>
             ))}
           </SimpleGrid>
-  
-          <Text fontSize="xs" textAlign="center" mt={12} color="gray.400">
-            Powered by advanced LangChain agents and RAG (Retrieval-Augmented Generation)
-          </Text>
+
   
           <HStack justify="center" mt={2} spacing={10}>
             <VStack spacing={0}>
-              <Box w={2} h={2} bg="purple.400" borderRadius="full" />
-              <Text fontSize="xs" color="gray.400">RAG System</Text>
-            </VStack>
-            <VStack spacing={0}>
-              <Box w={2} h={2} bg="purple.400" borderRadius="full" />
-              <Text fontSize="xs" color="gray.400">LangChain Agent</Text>
-            </VStack>
-            <VStack spacing={0}>
-              <Box w={2} h={2} bg="purple.400" borderRadius="full" />
-              <Text fontSize="xs" color="gray.400">Memory System</Text>
+  
             </VStack>
           </HStack>
         </Box>
   
         {/* Why It's Different Section */}
-        <Box textAlign="center" px={4} pt={20} pb={24} bg="white">
-          <Heading fontSize="3xl" fontWeight="bold" mb={4} color="gray.800">
-            Why It's Different
-          </Heading>
-          <Text fontSize="md" color="gray.600" mb={12}>
-            Unlike traditional AI content tools, QuickComs is specifically designed
-            for startup founders and their internal communication needs.
-          </Text>
-  
-          <MotionBox
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            maxW="3xl"
-            mx="auto"
-            borderRadius="lg"
-            overflow="hidden"
-            boxShadow="lg"
-            bg="black"
-            color="white"
-          >
-            <Box
-              display="grid"
-              gridTemplateColumns="1fr 1fr 1fr"
-              fontWeight="semibold"
-              py={5}
-              px={6}
-              borderBottom="1px solid"
-              borderColor="gray.700"
-              fontSize="sm"
-            >
-              <Text textAlign="left">Feature</Text>
-              <Text textAlign="center">QuickComs</Text>
-              <Text textAlign="center">Other AI Tools</Text>
-            </Box>
-  
-            {[
-              'Daily Flowcharts',
-              'Multi-platform output in one go',
-              'Video Output',
-              'Team-focused communication',
-              'Built on LangChain with real-time chaining & memory',
-            ].map((feature, i) => (
-              <Box
-                key={i}
-                display="grid"
-                gridTemplateColumns="1fr 1fr 1fr"
-                py={4}
-                px={6}
-                borderTop="1px solid"
-                borderColor="gray.800"
-                fontSize="sm"
-              >
-                <Text textAlign="left" color="gray.300">{feature}</Text>
-                <Text textAlign="center" color="purple.400">✔</Text>
-                <Text textAlign="center" color="purple.400">✘</Text>
-              </Box>
-            ))}
-          </MotionBox>
-        </Box>
+        {/* Why It's Different Section */}
+<Box textAlign="center" px={4} pt={20} pb={24} bg="white">
+  <Heading fontSize="4xl" fontWeight="bold" mb={6} color="gray.800">
+    Why It's Different
+  </Heading>
+  <Text fontSize="lg" color="gray.600" mb={14}>
+    Unlike traditional AI content tools, Quick Coms is specifically designed
+    for startup founders and their internal communication needs.
+  </Text>
+
+  <MotionBox
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    maxW="5xl" // Increased width
+    mx="auto"
+    borderRadius="xl"
+    overflow="hidden"
+    boxShadow="xl"
+    bg="black"
+    color="white"
+  >
+    {/* Table Header */}
+    <Box
+      display="grid"
+      gridTemplateColumns="1fr 1fr 1fr"
+      fontWeight="bold"
+      fontSize="md" // larger text
+      py={6}
+      px={8}
+      borderBottom="1px solid"
+      borderColor="gray.700"
+    >
+      <Text textAlign="left">Feature</Text>
+      <Text textAlign="center">Quick Coms</Text>
+      <Text textAlign="center">Other AI Tools</Text>
+    </Box>
+
+    {/* Table Rows */}
+    {[
+      'Daily Flowcharts',
+      'Multi-platform output in one go',
+      'Video Output',
+      'Team-focused communication',
+      'Built on LangChain with real-time chaining & memory',
+    ].map((feature, i) => (
+      <Box
+        key={i}
+        display="grid"
+        gridTemplateColumns="1fr 1fr 1fr"
+        py={5}
+        px={8}
+        borderTop="1px solid"
+        borderColor="gray.800"
+        fontSize="md"
+      >
+        <Text textAlign="left" color="gray.300">{feature}</Text>
+        <Text textAlign="center" color="purple.400">✔</Text>
+        <Text textAlign="center" color="purple.400">✘</Text>
+      </Box>
+    ))}
+  </MotionBox>
+</Box>
+
       </>
     );
   };
