@@ -12,7 +12,6 @@ import {
   } from '@chakra-ui/react';
   import { Typewriter } from 'react-simple-typewriter';
   import { motion } from 'framer-motion';
-  import Navbar from '../components/navbar';
   import { useNavigate } from 'react-router-dom';
 
   
@@ -24,7 +23,6 @@ import {
     const navigate = useNavigate();
     return (
       <>
-        <Navbar />
         <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -14,6 +14,7 @@ import {
     useToast,
   } from '@chakra-ui/react';
   import { ClipboardCopy, Download, Settings } from 'lucide-react';
+    
   
   const categories = ['Engineering', 'Sales', 'Marketing'];
   
@@ -21,6 +22,7 @@ import {
     const toast = useToast();
   
     const handleCopy = () => {
+
       navigator.clipboard.writeText(`${title} content copied.`);
       toast({
         title: `Copied content for ${title}`,
