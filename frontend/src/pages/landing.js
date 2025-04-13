@@ -10,25 +10,25 @@ import {
     Divider,
     SimpleGrid,
   } from '@chakra-ui/react';
-  import { Typewriter } from 'react-simple-typewriter';
   import { motion } from 'framer-motion';
+  import { Typewriter } from 'react-simple-typewriter';
   import { useNavigate } from 'react-router-dom';
-
   
   const MotionBox = motion(Box);
   const MotionDiv = motion.div;
-
   
   const Landing = () => {
     const navigate = useNavigate();
+  
     return (
       <>
+        {/* Hero Section */}
         <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Box bg="white" px={6} py={16}>
+          <Box bg="white" px={7} pt={20} pb={44}> {/* Increased bottom padding */}
             <Flex
               maxW="7xl"
               mx="auto"
@@ -63,15 +63,19 @@ import {
                   high-quality, personalized, and clear content. You build. We write.
                 </Text>
                 <HStack spacing={4}>
-                <Button
-  colorScheme="purple"
-  size="lg"
-  onClick={() => navigate('/team')}
-  _hover={{ transform: 'scale(1.04)', boxShadow: 'lg' }}
->
-  Get Started
-</Button>
-                  <Button variant="outline" size="lg" _hover={{ transform: 'scale(1.04)', boxShadow: 'md' }}>
+                  <Button
+                    colorScheme="purple"
+                    size="lg"
+                    onClick={() => navigate('/team')}
+                    _hover={{ transform: 'scale(1.04)', boxShadow: 'lg' }}
+                  >
+                    Get Started
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    _hover={{ transform: 'scale(1.04)', boxShadow: 'md' }}
+                  >
                     Learn More
                   </Button>
                 </HStack>
@@ -99,8 +103,8 @@ import {
   Launching Video and Transcript...
   Shoutout to the devs who made this happen in 2 days
   #startups #ux #shipit
-                  `]}
-                  typeSpeed={30}
+                `]}
+                  typeSpeed={22}
                   cursor
                   cursorStyle="_"
                 />
@@ -109,9 +113,84 @@ import {
           </Box>
         </MotionDiv>
   
-        <Divider my={16} />
+        {/* How It Works Section */}
+        <Box id="how-it-works" bg="#0F1117" py={20} px={6} color="white">
+          <Box textAlign="center" mb={16}>
+            <Heading fontSize="2xl" fontWeight="bold" mb={3}>
+              How QuickComs Works
+            </Heading>
+            <Text fontSize="sm" color="gray.400" maxW="2xl" mx="auto">
+              A seamless process that transforms your internal activities into
+              engaging content across multiple channels.
+            </Text>
+          </Box>
   
-        <Box textAlign="center" px={4} pt={4} pb={20}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} maxW="6xl" mx="auto">
+            {[
+              {
+                title: 'Connect Your Tools',
+                desc: 'Easily integrate with Zoom, Slack, Notion, product changelogs from GitHub or Linear, team chats, and roadmap docs.',
+                icon: '📅',
+              },
+              {
+                title: 'AI Reads Your Content',
+                desc: 'Our agent reads what your team is actually doing, analyzing context and understanding your goals.',
+                icon: '🧠',
+              },
+              {
+                title: 'Generate Multi-Platform Content',
+                desc: 'Get personalized content with flow charts, videos, and summaries for various team.',
+                icon: '🛠️',
+              },
+              {
+                title: 'Maintain Your Voice',
+                desc: 'All content is crafted in your teams’ unique tone.',
+                icon: '💬',
+              },
+            ].map((item, i) => (
+              <Box
+                key={i}
+                bg="white"
+                color="gray.800"
+                borderRadius="lg"
+                p={6}
+                boxShadow="lg"
+                _hover={{ transform: 'translateY(-4px)', boxShadow: 'xl' }}
+                transition="0.2s"
+              >
+                <Text fontSize="2xl" mb={4}>{item.icon}</Text>
+                <Text fontWeight="semibold" fontSize="lg" mb={2}>
+                  {item.title}
+                </Text>
+                <Text fontSize="sm" color="gray.600">
+                  {item.desc}
+                </Text>
+              </Box>
+            ))}
+          </SimpleGrid>
+  
+          <Text fontSize="xs" textAlign="center" mt={12} color="gray.400">
+            Powered by advanced LangChain agents and RAG (Retrieval-Augmented Generation)
+          </Text>
+  
+          <HStack justify="center" mt={2} spacing={10}>
+            <VStack spacing={0}>
+              <Box w={2} h={2} bg="purple.400" borderRadius="full" />
+              <Text fontSize="xs" color="gray.400">RAG System</Text>
+            </VStack>
+            <VStack spacing={0}>
+              <Box w={2} h={2} bg="purple.400" borderRadius="full" />
+              <Text fontSize="xs" color="gray.400">LangChain Agent</Text>
+            </VStack>
+            <VStack spacing={0}>
+              <Box w={2} h={2} bg="purple.400" borderRadius="full" />
+              <Text fontSize="xs" color="gray.400">Memory System</Text>
+            </VStack>
+          </HStack>
+        </Box>
+  
+        {/* Why It's Different Section */}
+        <Box textAlign="center" px={4} pt={20} pb={24} bg="white">
           <Heading fontSize="3xl" fontWeight="bold" mb={4} color="gray.800">
             Why It's Different
           </Heading>
@@ -126,10 +205,11 @@ import {
             transition={{ duration: 0.8 }}
             maxW="3xl"
             mx="auto"
-            borderRadius="xl"
+            borderRadius="lg"
             overflow="hidden"
             boxShadow="lg"
-            bg="purple.50"
+            bg="black"
+            color="white"
           >
             <Box
               display="grid"
@@ -138,9 +218,7 @@ import {
               py={5}
               px={6}
               borderBottom="1px solid"
-              borderColor="purple.100"
-              bg="purple.100"
-              color="gray.800"
+              borderColor="gray.700"
               fontSize="sm"
             >
               <Text textAlign="left">Feature</Text>
@@ -148,78 +226,29 @@ import {
               <Text textAlign="center">Other AI Tools</Text>
             </Box>
   
-            {["Daily Flowcharts", "Multi-platform output in one go", "Video Output", "Team-focused communication", "Built on LangChain with real-time chaining & memory"].map(
-              (feature, i) => (
-                <Box
-                  key={i}
-                  display="grid"
-                  gridTemplateColumns="1fr 1fr 1fr"
-                  py={5}
-                  px={6}
-                  borderTop="1px solid"
-                  borderColor="purple.100"
-                  fontSize="sm"
-                  bg="purple.50"
-                >
-                  <Text textAlign="left" color="gray.700">
-                    {feature}
-                  </Text>
-                  <Text textAlign="center">✅</Text>
-                  <Text textAlign="center">❌</Text>
-                </Box>
-              )
-            )}
-          </MotionBox>
-        </Box>
-  
-        <Divider my={24} />
-  
-        <Box id="how-it-works" bg="#0F1117" py={20} px={6} color="white">
-          <Box textAlign="center" mb={16}>
-            <Heading fontSize="2xl" fontWeight="bold" mb={3}>
-              How QuickComs Works
-            </Heading>
-            <Text fontSize="sm" color="gray.400" maxW="2xl" mx="auto">
-              A seamless workflow that converts your team’s activity into ready-to-publish, platform-optimized content.
-            </Text>
-          </Box>
-  
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} maxW="6xl" mx="auto">
-            {[{
-              title: "Connect Your Tools",
-              desc: "Sync your meeting notes, changelogs, and team chats from Slack, Linear, Notion, Zoom and more.",
-              icon: "🧩"
-            }, {
-              title: "AI Reads Your Content",
-              desc: "Our agent analyzes your team’s real work, context, and goals using LangChain and memory.",
-              icon: "🧠"
-            }, {
-              title: "Multi-Platform Output",
-              desc: "Instant content for X, LinkedIn, product updates, and summaries — auto-styled for each.",
-              icon: "📤"
-            }, {
-              title: "Maintain Your Voice",
-              desc: "It sounds like you — because it learns from how you speak, write, and present.",
-              icon: "🗣️"
-            }].map((item, i) => (
+            {[
+              'Daily Flowcharts',
+              'Multi-platform output in one go',
+              'Video Output',
+              'Team-focused communication',
+              'Built on LangChain with real-time chaining & memory',
+            ].map((feature, i) => (
               <Box
                 key={i}
-                bg="gray.800"
-                borderRadius="lg"
-                p={6}
-                boxShadow="lg"
-                _hover={{ transform: 'translateY(-4px)', boxShadow: 'xl' }}
+                display="grid"
+                gridTemplateColumns="1fr 1fr 1fr"
+                py={4}
+                px={6}
+                borderTop="1px solid"
+                borderColor="gray.800"
+                fontSize="sm"
               >
-                <Text fontSize="2xl" mb={4}>{item.icon}</Text>
-                <Text fontWeight="semibold" fontSize="lg" mb={2}>
-                  {item.title}
-                </Text>
-                <Text fontSize="sm" color="gray.400">
-                  {item.desc}
-                </Text>
+                <Text textAlign="left" color="gray.300">{feature}</Text>
+                <Text textAlign="center" color="purple.400">✔</Text>
+                <Text textAlign="center" color="purple.400">✘</Text>
               </Box>
             ))}
-          </SimpleGrid>
+          </MotionBox>
         </Box>
       </>
     );
